@@ -68,10 +68,19 @@ static int xmp_read(const char *path, char *buf, size_t size, off_t offset,
 		sprintf(fpath,"%s",path);
 	}
 	else sprintf(fpath, "%s%s",dirpath,path);
+	
 	if(strstr(fpath,".doc") != NULL || strstr(fpath,".pdf") != NULL || strstr(fpath,".txt") != NULL)
 	{
-		
-	
+		char kata[100];
+		char extension[100];
+		strcat(kata, fpath);
+		strcat(kata, ".ditandai");
+		printf("Terjadi kesalahan! File berisi konten berbahaya.\n");
+		int x = rename(fpath,kata);
+		if(x == -1){
+			return -errno;
+			return 0;
+		}
 	}
 	int res = 0;
   int fd = 0 ;
