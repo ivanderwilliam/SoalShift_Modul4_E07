@@ -85,7 +85,7 @@ static int xmp_read(const char *path, char *buf, size_t size, off_t offset,
 		system(izin);
 		
 		sprintf(pindah,"mv %s /home/irman/rahasia",kata);
-		system(move);
+		system(pindah);
 		
 		if(x == -1){
 			return -errno;
