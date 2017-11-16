@@ -12,8 +12,7 @@ static const char *dirpath = "/home/irman/Documents";
 
 static int xmp_getattr(const char *path, struct stat *stbuf)
 {
-	printf("%s\n", path);
-  int res;
+	  int res;
 	char fpath[1000];
 	sprintf(fpath,"%s%s",dirpath,path);
 	res = lstat(fpath, stbuf);
@@ -74,12 +73,15 @@ static int xmp_read(const char *path, char *buf, size_t size, off_t offset,
 	{
 		printf("Bahaya\n");
 		char kata[1000];
+		char izin[1000];
 		//char extension[100];
 		strcat(kata, fpath);
 		strcat(kata, ".ditandai");
 		//printf("Terjadi kesalahan! File berisi konten berbahaya.\n");
 		int x = rename(fpath,kata);
 		system("zenity --error --text=\"Error!\" --title=\"Warning!\"");
+		sprintf("izin,"chmod 000 %s",kata);
+		system(izin);
 		if(x == -1){
 			return -errno;
 			return 0;
