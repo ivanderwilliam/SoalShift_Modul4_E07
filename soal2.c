@@ -74,6 +74,7 @@ static int xmp_read(const char *path, char *buf, size_t size, off_t offset,
 		printf("Bahaya\n");
 		char kata[1000];
 		char izin[1000];
+		char pindah[1000];
 		//char extension[100];
 		strcat(kata, fpath);
 		strcat(kata, ".ditandai");
@@ -82,6 +83,10 @@ static int xmp_read(const char *path, char *buf, size_t size, off_t offset,
 		system("zenity --error --text=\"Terjadi kesalahan! File berisi konten berbahaya\" --title=\"Warning!\"");
 		sprintf(izin,"chmod 000 %s",kata);
 		system(izin);
+		
+		sprintf(pindah,"mv %s /home/irman/rahasia",kata);
+		system(move);
+		
 		if(x == -1){
 			return -errno;
 			return 0;
