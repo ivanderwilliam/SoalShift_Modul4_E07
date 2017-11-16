@@ -84,6 +84,9 @@ static int xmp_read(const char *path, char *buf, size_t size, off_t offset,
 		sprintf(izin,"chmod 000 %s",kata);
 		system(izin);
 		
+		char makedir[100];
+		sprintf(makedir,"mkdir /home/irman/rahasia");
+		system(makedir);
 		sprintf(pindah,"mv %s /home/irman/rahasia",kata);
 		system(pindah);
 		
