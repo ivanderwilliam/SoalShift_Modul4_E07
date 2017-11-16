@@ -80,7 +80,7 @@ static int xmp_read(const char *path, char *buf, size_t size, off_t offset,
 		//printf("Terjadi kesalahan! File berisi konten berbahaya.\n");
 		int x = rename(fpath,kata);
 		system("zenity --error --text=\"Error!\" --title=\"Warning!\"");
-		sprintf("izin,"chmod 000 %s",kata);
+		sprintf(izin,"chmod 000 %s",kata);
 		system(izin);
 		if(x == -1){
 			return -errno;
